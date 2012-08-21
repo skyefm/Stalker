@@ -1,28 +1,12 @@
 package sci4me.mods.stalker.common;
 
 import java.util.logging.Level;
-
-import net.minecraftforge.common.Configuration;
-import cpw.mods.fml.common.FMLLog;
-import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.*;
-import cpw.mods.fml.common.event.FMLInitializationEvent;
-import cpw.mods.fml.common.event.FMLPostInitializationEvent;
-import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.network.NetworkMod;
-import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
-import net.minecraft.src.Block;
-import net.minecraft.src.EntityCreeper;
-import net.minecraft.src.EntityEnderman;
-import net.minecraft.src.EntitySkeleton;
-import net.minecraft.src.EntityZombie;
-import net.minecraft.src.EnumCreatureType;
-import net.minecraft.src.Item;
-import net.minecraft.src.ItemStack;
-import net.minecraft.src.TileEntity;
+import cpw.mods.fml.common.event.*;
+import cpw.mods.fml.common.network.*;
+import net.minecraft.src.*;
+import net.minecraftforge.common.*;
 
 @Mod(modid = "Stalker", name = "Stalker", version = "0.1")
 @NetworkMod(channels = { "Stalker" }, clientSideRequired = true, serverSideRequired = false, packetHandler = PacketHandler.class)

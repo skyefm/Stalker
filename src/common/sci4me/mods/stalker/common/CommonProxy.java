@@ -1,8 +1,7 @@
 package sci4me.mods.stalker.common;
 
-import net.minecraft.src.EntityPlayer;
-import net.minecraft.src.World;
-import cpw.mods.fml.common.network.IGuiHandler;
+import net.minecraft.src.*;
+import cpw.mods.fml.common.network.*;
 
 public class CommonProxy implements IGuiHandler
 {
