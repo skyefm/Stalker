@@ -5,7 +5,10 @@ import cpw.mods.fml.common.*;
 import cpw.mods.fml.common.Mod.*;
 import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.network.*;
+import cpw.mods.fml.common.registry.*;
 import net.minecraft.src.*;
+import net.minecraft.src.Block;
+import net.minecraft.src.Item;
 import net.minecraftforge.common.*;
 
 @Mod(modid = "Stalker", name = "Stalker", version = "0.1")
@@ -18,6 +21,10 @@ public class Stalker
 	@Instance
 	public static Stalker instance;
 	
+	private int spawnerID;
+	
+	private Item spawner;
+	
 	@PreInit
 	public void preInit(FMLPreInitializationEvent event)
 	{
@@ -25,9 +32,10 @@ public class Stalker
 		try 
 		{
 			cfg.load();
+			spawnerID = cfg.getOrCreateProperty("Spawner", Configuration.CATEGORY_ITEM, "400").getInt();
 		} 
 		catch (Exception e)
-		{			
+		{		
 			FMLLog.log(Level.SEVERE, e, "Stalker's configuration failed to load.");
 		} 
 		finally 
@@ -39,6 +47,12 @@ public class Stalker
 	@Init
 	public void init(FMLInitializationEvent event)
 	{
+		spawner = new ItemStalkerSpawner(spawnerID).setItemName("stalkerSpawner");
+		LanguageRegistry.instance().addStringLocalization(spawner.getItemName() + ".name", "en_US", "Spawn Stalker");
+		
+		EntityRegistry.registerModEntity(EntityStalker.class, "Stalker", 220, this, 24, 5, true);
+		EntityRegistry.addSpawn(EntityStalker.class, 1, 10, 10, EnumCreatureType.monster);
+		
 		proxy.registerRenderInformation();
 	}	
 	
