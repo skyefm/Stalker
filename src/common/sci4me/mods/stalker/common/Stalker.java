@@ -50,8 +50,9 @@ public class Stalker
 		spawner = new ItemStalkerSpawner(spawnerID).setItemName("stalkerSpawner");
 		LanguageRegistry.instance().addStringLocalization(spawner.getItemName() + ".name", "en_US", "Spawn Stalker");
 		
-		EntityRegistry.registerModEntity(EntityStalker.class, "Stalker", 220, this, 24, 5, true);
-		EntityRegistry.addSpawn(EntityStalker.class, 1, 10, 10, EnumCreatureType.monster);
+		LanguageRegistry.instance().addStringLocalization("entity.Stalker.name", "en_US", "Stalker");
+		EntityRegistry.registerModEntity(EntityStalker.class, "Stalker", 1, this, 250, 5, true);
+		EntityRegistry.addSpawn(EntityStalker.class, 10, 10, 10, EnumCreatureType.monster);
 		
 		proxy.registerRenderInformation();
 	}	
